@@ -1,6 +1,6 @@
-FROM node:24-slim AS build
+FROM node:26-slim AS build
 ENV PNPM_HOME=/pnpm PATH=/pnpm:$PATH
-RUN corepack enable
+RUN npm install -g corepack && corepack enable
 WORKDIR /app
 
 COPY package.json pnpm-lock.yaml ./
