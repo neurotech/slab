@@ -6,7 +6,7 @@ const KEY = "SLAB_CONFIG_HOSTNAME";
 
 export const useLocalStorage = () => {
 	const getConfig = (): Config => {
-		const config = JSON.parse(localStorage.getItem(KEY)) as Config;
+		const config = JSON.parse(localStorage.getItem(KEY) ?? "") as Config;
 		return config;
 	};
 

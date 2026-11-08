@@ -21,7 +21,7 @@ export const ServiceDialog = ({
 	handleCreate: (input: NewService) => Promise<void>;
 	handleUpdate: (input: Service) => Promise<void>;
 	setEditingService: (service?: Service) => void;
-	service?: Service;
+	service: Service | null | undefined;
 }) => {
 	const [name, setName] = useState<string>(service?.name ?? "");
 	const [port, setPort] = useState<string>(service?.port ?? "");

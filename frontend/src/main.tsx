@@ -6,10 +6,12 @@ import { ConfigProvider } from "./context/config-context.tsx";
 
 const root = document.getElementById("root");
 
-createRoot(root).render(
-	<StrictMode>
-		<ConfigProvider>
-			<App />
-		</ConfigProvider>
-	</StrictMode>,
-);
+if (root) {
+	createRoot(root).render(
+		<StrictMode>
+			<ConfigProvider>
+				<App />
+			</ConfigProvider>
+		</StrictMode>,
+	);
+}

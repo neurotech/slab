@@ -10,7 +10,7 @@ import { useLocalStorage } from "@/hooks/useLocalStorage";
 type ConfigContextType = {
 	configDialogOpen: boolean;
 	toggleConfigDialog: () => void;
-	hostname: string;
+	hostname: string | null;
 	saveHostname: (newHostname: string) => void;
 };
 

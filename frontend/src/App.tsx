@@ -15,7 +15,9 @@ export const App = () => {
 	const { configDialogOpen, toggleConfigDialog, hostname } = use(ConfigContext);
 	const { serviceDialogOpen, toggleServiceDialog } = useServiceDialog();
 
-	const [editingService, setEditingService] = useState<Service | null>();
+	const [editingService, setEditingService] = useState<
+		Service | null | undefined
+	>();
 
 	const {
 		data: services,
@@ -83,7 +85,7 @@ export const App = () => {
 			<main className="relative flex flex-col flex-1 overflow-y-auto p-4">
 				{configPresent ? (
 					<Services
-						services={services}
+						services={services ?? []}
 						loading={loading}
 						toggleServiceDialog={toggleServiceDialog}
 						handleDelete={handleDelete}
