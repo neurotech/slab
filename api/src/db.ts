@@ -1,7 +1,7 @@
 import { DatabaseSync } from "node:sqlite";
 import type { Service } from "./types.js";
 
-const database = new DatabaseSync("./slab.db");
+const database = new DatabaseSync(process.env.DB_PATH ?? "./slab.db");
 const sql = database.createTagStore();
 
 export const setup = () => {

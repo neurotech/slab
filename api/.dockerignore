@@ -1,0 +1,5 @@
+node_modules
+dist
+slab.db*
+.git
+README.md

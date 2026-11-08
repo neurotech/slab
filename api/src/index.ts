@@ -12,12 +12,11 @@ import type { Service } from "./types.js";
 
 const app = new Hono();
 
-app.use(
-	"/api/*",
-	cors({
-		origin: ["http://macbookpro:4000", "http://localhost:4000"],
-	}),
-);
+const origins = (
+	process.env.CORS_ORIGINS ?? "http://macbookpro:4000,http://localhost:4000"
+).split(",");
+
+app.use("/api/*", cors({ origin: origins }));
 
 app.get("/api/services", (c) => {
 	const services = getServices();
@@ -46,7 +45,7 @@ app.get("/api/health", (c) => c.text("ok"));
 serve(
 	{
 		fetch: app.fetch,
-		port: 3000,
+		port: Number(process.env.PORT ?? 3000),
 	},
 	(info) => {
 		setup();
